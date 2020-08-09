@@ -3,6 +3,7 @@ package com.example.weather.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -51,6 +52,11 @@ class WeatherAdapter : RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() 
                 .into(adapterImageView)
             adapterCityNameTv.text = weather.name
             adapterTempTv.text = weather.main.temp.toString()
+            setOnClickListener(
+                Navigation.createNavigateOnClickListener(
+                    R.id.action_weatherFragment_to_cityFragment, null
+                )
+            )
         }
     }
 }
